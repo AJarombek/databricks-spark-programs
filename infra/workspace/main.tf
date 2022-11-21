@@ -32,7 +32,7 @@ terraform {
   backend "s3" {
     bucket = "andrew-jarombek-terraform-state"
     encrypt = true
-    key = "global-aws-infrastructure/parameter-store/secrets/dbrx"
+    key = "databricks-spark-programs/workspace"
     region = "us-east-1"
   }
 }
