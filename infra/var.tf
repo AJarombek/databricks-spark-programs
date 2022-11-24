@@ -1,7 +1,7 @@
 /**
- * Variables for building a Databricks workspace.
+ * Variables for Databricks infrastructure.
  * Author: Andrew Jarombek
- * Date: 11/15/2022
+ * Date: 11/23/2022
  */
 
 variable "databricks_account_username" {
