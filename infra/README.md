@@ -16,6 +16,18 @@ export TF_VAR_databricks_account_id=XXX
 terraform plan
 terraform apply -auto-approve
 
+# Apply the infrastructure in debug mode
+TF_LOG=DEBUG terraform apply -auto-approve
+
 # Destroy Infrastructure
 terraform destroy -auto-approve
 ```
+
+### Files
+
+| Filename    | Description                                                        |
+|-------------|--------------------------------------------------------------------|
+| `notebooks` | Terraform infrastructure for Databricks notebooks.                 |
+| `workspace` | Terraform infrastructure for a Databricks workspace hosted on AWS. |
+| `main.tf`   | Main Terraform file that configures Databricks infrastructure.     |
+| `var.tf`    | Terraform variables used for Databricks infrastructure.            |

@@ -8,11 +8,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-#provider "databricks" {
-#  host = module.e2.databricks_host
-#  token = module.e2.databricks_token
-#}
-
 terraform {
   required_version = ">= 1.1.2"
 
@@ -41,4 +36,10 @@ module "e2" {
   databricks_account_username = var.databricks_account_username
   databricks_account_password = var.databricks_account_password
   databricks_account_id = var.databricks_account_id
+}
+
+module "notebooks" {
+  source = "./notebooks"
+  databricks_host = module.e2.databricks_host
+  databricks_token = module.e2.databricks_token
 }
