@@ -11,7 +11,7 @@ module "vpc" {
   version = "3.2.0"
 
   name = local.vpc_name
-  cidr_block = local.cidr_block
+  cidr = local.cidr_block
   azs = data.aws_availability_zones.available.names
 
   enable_dns_hostnames = true

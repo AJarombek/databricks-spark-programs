@@ -8,17 +8,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-provider "databricks" {
-  alias = "mws"
-  host = "https://accounts.cloud.databricks.com"
-  username = var.databricks_account_username
-  password = var.databricks_account_password
-}
-
-provider "databricks" {
-  host = module.e2.databricks_host
-  token = module.e2.databricks_token
-}
+#provider "databricks" {
+#  host = module.e2.databricks_host
+#  token = module.e2.databricks_token
+#}
 
 terraform {
   required_version = ">= 1.1.2"
@@ -26,6 +19,7 @@ terraform {
   required_providers {
     databricks = {
       source = "databricks/databricks"
+      version = ">= 1.6.5"
     }
 
     aws = {
