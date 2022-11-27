@@ -25,9 +25,10 @@ terraform destroy -auto-approve
 
 ### Files
 
-| Filename    | Description                                                        |
-|-------------|--------------------------------------------------------------------|
-| `notebooks` | Terraform infrastructure for Databricks notebooks.                 |
-| `workspace` | Terraform infrastructure for a Databricks workspace hosted on AWS. |
-| `main.tf`   | Main Terraform file that configures Databricks infrastructure.     |
-| `var.tf`    | Terraform variables used for Databricks infrastructure.            |
+| Filename    | Description                                                          |
+|-------------|----------------------------------------------------------------------|
+| `clusters`  | Terraform infrastructure for Databricks clusters and instance pools. |
+| `notebooks` | Terraform infrastructure for Databricks notebooks.                   |
+| `workspace` | Terraform infrastructure for a Databricks workspace hosted on AWS.   |
+| `main.tf`   | Main Terraform file that configures Databricks infrastructure.       |
+| `var.tf`    | Terraform variables used for Databricks infrastructure.              |
