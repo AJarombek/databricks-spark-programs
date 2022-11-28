@@ -18,6 +18,7 @@ data "databricks_current_user" "me" {
 
 data "databricks_user" "guest" {
   user_name = "guest@jarombek.com"
+  depends_on = [var.databricks_host]
 }
 
 resource "databricks_notebook" "hello_world" {
@@ -41,4 +42,10 @@ resource "databricks_permissions" "hello_world" {
     user_name = data.databricks_user.guest.user_name
     permission_level = local.permissions.can_run
   }
+}
+
+resource "databricks_notebook" "spark_temp_view_python" {
+  path = "${data.databricks_current_user.me.home}/spark_temp_view_python"
+  language = "PYTHON"
+  source = "${path.module}/python/spark_temp_view_python.py"
 }

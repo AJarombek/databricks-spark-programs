@@ -44,6 +44,12 @@ module "notebooks" {
   databricks_token = module.e2.databricks_token
 }
 
+module "jobs" {
+  source = "./jobs"
+  databricks_host = module.e2.databricks_host
+  databricks_token = module.e2.databricks_token
+}
+
 module "clusters" {
   source = "./clusters"
   databricks_host = module.e2.databricks_host

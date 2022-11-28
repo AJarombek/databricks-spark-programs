@@ -1,5 +1,5 @@
 /**
- * Variables for building a Databricks workspace.
+ * Variables for building administrative resources in Databricks.
  * Author: Andrew Jarombek
  * Date: 11/26/2022
  */

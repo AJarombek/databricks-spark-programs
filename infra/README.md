@@ -29,6 +29,7 @@ terraform destroy -auto-approve
 |------------------|----------------------------------------------------------------------------------|
 | `administration` | Terraform infrastructure for Databricks administrative resources, such as users. |
 | `clusters`       | Terraform infrastructure for Databricks clusters and instance pools.             |
+| `jobs`           | Terraform infrastructure for Databricks jobs.                                    |
 | `notebooks`      | Terraform infrastructure for Databricks notebooks.                               |
 | `workspace`      | Terraform infrastructure for a Databricks workspace hosted on AWS.               |
 | `main.tf`        | Main Terraform file that configures Databricks infrastructure.                   |

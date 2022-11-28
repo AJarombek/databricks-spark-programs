@@ -1,5 +1,5 @@
 /**
- * Variables for building clusters in Databricks.
+ * Variables for building Databricks jobs.
  * Author: Andrew Jarombek
  * Date: 11/26/2022
  */

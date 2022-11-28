@@ -4,7 +4,9 @@
  * Date: 11/26/2022
  */
 
-data "databricks_spark_version" "latest" {}
+data "databricks_spark_version" "latest" {
+  depends_on = [var.databricks_host]
+}
 
 data "databricks_node_type" "smallest" {
   local_disk = true
@@ -42,7 +44,7 @@ resource "databricks_instance_pool" "smallest" {
   min_idle_instances = 0
   max_capacity = 30
   node_type_id = data.databricks_node_type.smallest.id
-  preload_spark_versions = [
+  preloaded_spark_versions = [
     data.databricks_spark_version.latest.id
   ]
 
