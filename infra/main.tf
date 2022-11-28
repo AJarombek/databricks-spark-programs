@@ -49,3 +49,9 @@ module "clusters" {
   databricks_host = module.e2.databricks_host
   databricks_token = module.e2.databricks_token
 }
+
+module "administration" {
+  source = "./administration"
+  databricks_host = module.e2.databricks_host
+  databricks_token = module.e2.databricks_token
+}
