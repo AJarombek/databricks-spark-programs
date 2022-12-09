@@ -31,6 +31,12 @@ terraform {
   }
 }
 
+module "administration" {
+  source = "./administration"
+  databricks_host = module.e2.databricks_host
+  databricks_token = module.e2.databricks_token
+}
+
 module "e2" {
   source = "./workspace"
   databricks_account_username = var.databricks_account_username
@@ -52,12 +58,6 @@ module "jobs" {
 
 module "clusters" {
   source = "./clusters"
-  databricks_host = module.e2.databricks_host
-  databricks_token = module.e2.databricks_token
-}
-
-module "administration" {
-  source = "./administration"
   databricks_host = module.e2.databricks_host
   databricks_token = module.e2.databricks_token
 }

@@ -34,11 +34,6 @@ resource "databricks_permissions" "hello_world" {
   notebook_path = databricks_notebook.hello_world.id
 
   access_control {
-    user_name = data.databricks_current_user.me.user_name
-    permission_level = local.permissions.can_manage
-  }
-
-  access_control {
     user_name = data.databricks_user.guest.user_name
     permission_level = local.permissions.can_run
   }
