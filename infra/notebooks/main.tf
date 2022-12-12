@@ -44,3 +44,21 @@ resource "databricks_notebook" "spark_temp_view_python" {
   language = "PYTHON"
   source = "${path.module}/python/spark_temp_view_python.py"
 }
+
+resource "databricks_notebook" "data_workflow_load_stage" {
+  path = "${data.databricks_current_user.me.home}/data_workflow_load_stage"
+  language = "PYTHON"
+  source = "${path.module}/python/data_workflow_load_stage.py"
+}
+
+resource "databricks_notebook" "data_workflow_transform_stage" {
+  path = "${data.databricks_current_user.me.home}/data_workflow_transform_stage"
+  language = "PYTHON"
+  source = "${path.module}/python/data_workflow_transform_stage.py"
+}
+
+resource "databricks_notebook" "data_workflow_display_stage" {
+  path = "${data.databricks_current_user.me.home}/data_workflow_display_stage"
+  language = "PYTHON"
+  source = "${path.module}/python/data_workflow_display_stage.py"
+}
