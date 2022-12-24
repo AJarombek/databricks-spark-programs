@@ -31,12 +31,6 @@ terraform {
   }
 }
 
-module "administration" {
-  source = "./administration"
-  databricks_host = module.e2.databricks_host
-  databricks_token = module.e2.databricks_token
-}
-
 module "e2" {
   source = "./workspace"
   databricks_account_username = var.databricks_account_username
@@ -44,20 +38,8 @@ module "e2" {
   databricks_account_id = var.databricks_account_id
 }
 
-module "notebooks" {
-  source = "./notebooks"
-  databricks_host = module.e2.databricks_host
-  databricks_token = module.e2.databricks_token
-}
-
-module "jobs" {
-  source = "./jobs"
-  databricks_host = module.e2.databricks_host
-  databricks_token = module.e2.databricks_token
-}
-
-module "clusters" {
-  source = "./clusters"
+module "databricks" {
+  source = "./databricks"
   databricks_host = module.e2.databricks_host
   databricks_token = module.e2.databricks_token
 }

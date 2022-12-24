@@ -63,6 +63,10 @@ resource "databricks_job" "hello_world" {
   notebook_task {
     notebook_path = data.databricks_notebook.hello_world.path
   }
+
+  tags = {
+    application = "sample"
+  }
 }
 
 resource "databricks_permissions" "hello_world" {
@@ -120,5 +124,9 @@ resource "databricks_job" "workflow" {
     depends_on {
       task_key = "transform"
     }
+  }
+
+  tags = {
+    application = "sample"
   }
 }
