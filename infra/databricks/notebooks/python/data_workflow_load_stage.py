@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Data Workflow Load Stage
+
+# COMMAND ----------
+
 from datetime import datetime
 
 import pyspark.sql.types as T
@@ -74,9 +79,43 @@ df.display()
 
 # COMMAND ----------
 
-df.createOrReplaceTempView("zwift_raw_data")
+df.createOrReplaceTempView("zwift_raw_data_view")
 
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SELECT * FROM zwift_raw_data
+# MAGIC SELECT * FROM zwift_raw_data_view
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DESCRIBE zwift_raw_data_view
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DROP VIEW zwift_raw_data_view;
+
+# COMMAND ----------
+
+df.write.saveAsTable("zwift_raw_data")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC SELECT * FROM zwift_raw_data;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DESCRIBE zwift_raw_data;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DESCRIBE DETAIL zwift_raw_data;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DESCRIBE HISTORY zwift_raw_data;
