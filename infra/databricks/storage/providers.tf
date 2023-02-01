@@ -1,7 +1,7 @@
 /**
  * Versions of providers used in the Terraform module.
  * Author: Andrew Jarombek
- * Date: 12/23/2022
+ * Date: 1/31/2023
  */
 
 terraform {
@@ -13,9 +13,4 @@ terraform {
       version = ">= 1.6.5"
     }
   }
-}
-
-provider "databricks" {
-  host  = var.databricks_host
-  token = var.databricks_token
 }

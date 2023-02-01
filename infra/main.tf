@@ -13,33 +13,33 @@ terraform {
 
   required_providers {
     databricks = {
-      source = "databricks/databricks"
+      source  = "databricks/databricks"
       version = ">= 1.6.5"
     }
 
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = ">= 4.15.0"
     }
   }
 
   backend "s3" {
-    bucket = "andrew-jarombek-terraform-state"
+    bucket  = "andrew-jarombek-terraform-state"
     encrypt = true
-    key = "databricks-spark-programs/infra"
-    region = "us-east-1"
+    key     = "databricks-spark-programs/infra"
+    region  = "us-east-1"
   }
 }
 
 module "e2" {
-  source = "./workspace"
+  source                      = "./workspace"
   databricks_account_username = var.databricks_account_username
   databricks_account_password = var.databricks_account_password
-  databricks_account_id = var.databricks_account_id
+  databricks_account_id       = var.databricks_account_id
 }
 
 module "databricks" {
-  source = "./databricks"
-  databricks_host = module.e2.databricks_host
+  source           = "./databricks"
+  databricks_host  = module.e2.databricks_host
   databricks_token = module.e2.databricks_token
 }

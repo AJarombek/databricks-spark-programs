@@ -5,6 +5,6 @@
  */
 
 resource "databricks_user" "guest" {
-  user_name = "guest@jarombek.com"
+  user_name    = "guest@jarombek.com"
   display_name = "Guest"
 }

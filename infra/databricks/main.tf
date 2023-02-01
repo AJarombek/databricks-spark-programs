@@ -5,30 +5,38 @@
  */
 
 module "administration" {
-  source = "./administration"
-  databricks_host = var.databricks_host
+  source           = "./administration"
+  databricks_host  = var.databricks_host
   databricks_token = var.databricks_token
 }
 
 module "notebooks" {
-  source = "./notebooks"
-  databricks_host = var.databricks_host
+  source           = "./notebooks"
+  databricks_host  = var.databricks_host
   databricks_token = var.databricks_token
 
   depends_on = [module.administration]
 }
 
 module "jobs" {
-  source = "./jobs"
-  databricks_host = var.databricks_host
+  source           = "./jobs"
+  databricks_host  = var.databricks_host
   databricks_token = var.databricks_token
 
   depends_on = [module.administration, module.notebooks]
 }
 
 module "clusters" {
-  source = "./clusters"
-  databricks_host = var.databricks_host
+  source           = "./clusters"
+  databricks_host  = var.databricks_host
+  databricks_token = var.databricks_token
+
+  depends_on = [module.administration]
+}
+
+module "storage" {
+  source           = "./storage"
+  databricks_host  = var.databricks_host
   databricks_token = var.databricks_token
 
   depends_on = [module.administration]

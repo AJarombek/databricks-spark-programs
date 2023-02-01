@@ -9,6 +9,6 @@ output "databricks_host" {
 }
 
 output "databricks_token" {
-  value = databricks_mws_workspaces.databricks.token[0].token_value
+  value     = databricks_mws_workspaces.databricks.token[0].token_value
   sensitive = true
 }

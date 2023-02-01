@@ -1,7 +1,7 @@
 /**
- * Variables for building administrative resources in Databricks.
+ * Variables for working within a Databricks workspace.
  * Author: Andrew Jarombek
- * Date: 11/26/2022
+ * Date: 1/31/2023
  */
 
 variable "databricks_host" {

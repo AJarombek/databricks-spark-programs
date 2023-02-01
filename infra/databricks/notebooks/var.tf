@@ -6,13 +6,13 @@
 
 variable "databricks_host" {
   description = "Host for a Databricks workspace"
-  default = ""
-  type = string
+  default     = ""
+  type        = string
 }
 
 variable "databricks_token" {
   description = "Token for a Databricks workspace"
-  default = ""
-  type = string
-  sensitive = true
+  default     = ""
+  type        = string
+  sensitive   = true
 }

@@ -6,20 +6,20 @@
 
 variable "databricks_account_username" {
   description = "Username for my Databricks account"
-  default = ""
-  type = string
+  default     = ""
+  type        = string
 }
 
 variable "databricks_account_password" {
   description = "Password for my Databricks account"
-  default = ""
-  type = string
-  sensitive = true
+  default     = ""
+  type        = string
+  sensitive   = true
 }
 
 variable "databricks_account_id" {
   description = "ID for my Databricks account"
-  default = ""
-  type = string
-  sensitive = true
+  default     = ""
+  type        = string
+  sensitive   = true
 }
