@@ -1,0 +1,55 @@
+# GitHub Action for formatting code.
+# Author: Andrew Jarombek
+# Date: 1/29/2023
+
+name: Terraform Formatting and Planning
+
+on:
+  push:
+    branches: ["main", "feature/*"]
+  pull_request:
+    branches: ["main"]
+
+  schedule:
+    - cron: "0 5 * * 5"
+
+  workflow_dispatch:
+
+jobs:
+  format_and_plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check Out Repository Code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.3.7
+
+      - name: Terraform Format
+        working-directory: ./infra
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
+        working-directory: ./infra
+        run: terraform init
+
+      - name: Terraform Validate
+        working-directory: ./infra
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        working-directory: ./infra
+        run: terraform plan -no-color -input=false
+        env:
+          DATABRICKS_ACCOUNT_USERNAME: ${{ secrets.DATABRICKS_ACCOUNT_USERNAME }}
+          DATABRICKS_ACCOUNT_PASSWORD: ${{ secrets.DATABRICKS_ACCOUNT_PASSWORD }}
+          DATABRICKS_ACCOUNT_ID: ${{ secrets.DATABRICKS_ACCOUNT_ID }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
