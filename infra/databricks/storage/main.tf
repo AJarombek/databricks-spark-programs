@@ -5,6 +5,6 @@
  */
 
 resource "databricks_dbfs_file" "strava_activities_csv" {
-  source = "${path.module}/strava_activities.csv"
+  source = "${path.module}/files/strava_activities.csv"
   path   = "/src/strava_activities.csv"
 }
