@@ -26,5 +26,12 @@ resource "databricks_mws_credentials" "databricks" {
   account_id       = var.databricks_account_id
   role_arn         = aws_iam_role.cross_account_role.arn
   credentials_name = "${local.prefix}-creds"
-  depends_on       = [aws_iam_role_policy.databricks]
+  depends_on       = [time_sleep.wait]
+}
+
+# Without sleeping after the IAM role creation, a Terraform error occurs.
+# https://registry.terraform.io/providers/databricks/databricks/latest/docs/guides/aws-workspace#credentials-validation-checks-errors
+resource "time_sleep" "wait" {
+  depends_on = [aws_iam_role.cross_account_role]
+  create_duration = "10s"
 }
