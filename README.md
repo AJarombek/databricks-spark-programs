@@ -31,7 +31,7 @@ gh secret set AWS_SECRET_ACCESS_KEY
 
 **[v1.0.0](https://github.com/AJarombek/databricks-spark-programs/tree/v1.0.0) - Initial Version**
 
-> Release Date: Jan 29th, 2023
+> Release Date: Mar 4th, 2023
 
 * Terraform infrastructure successfully creates Databricks E2 workspace and objects within the workspace
 * GitHub Actions workflow for formatting Terraform

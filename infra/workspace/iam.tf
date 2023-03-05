@@ -32,6 +32,6 @@ resource "databricks_mws_credentials" "databricks" {
 # Without sleeping after the IAM role creation, a Terraform error occurs.
 # https://registry.terraform.io/providers/databricks/databricks/latest/docs/guides/aws-workspace#credentials-validation-checks-errors
 resource "time_sleep" "wait" {
-  depends_on = [aws_iam_role.cross_account_role]
+  depends_on      = [aws_iam_role.cross_account_role]
   create_duration = "10s"
 }
