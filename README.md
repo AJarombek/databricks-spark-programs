@@ -1,5 +1,11 @@
 # databricks-spark-programs
 
+![Maintained Label](https://img.shields.io/badge/Maintained-No-red?style=for-the-badge)
+![Deprecated Label](https://img.shields.io/badge/Deprecated-Yes-lightgray?style=for-the-badge)
+![Archived Label](https://img.shields.io/badge/Archived-Yes-lightgray?style=for-the-badge)
+
+> Code Migrated to [andy-jarombek-research](https://github.com/AJarombek/andy-jarombek-research)
+
 ### Overview
 
 Spark/Databricks programs hosted on a Databricks environment on AWS.
